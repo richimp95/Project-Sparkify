@@ -4,10 +4,15 @@ from sql_queries import create_table_queries, drop_table_queries
 
 def create_database():
     """
-    - Creates and connects to the sparkifydb
-    - Returns the connection and cursor to sparkifydb
+    Description: This function creates and connects to the sparkifydb
+
+    Arguments:
+        None
+
+    Returns:
+        Returns the connection and cursor to sparkifydb
     """
-    
+
     # connect to default database
     conn = psycopg2.connect("host=127.0.0.1 dbname=studentdb user=student password=student")
     conn.set_session(autocommit=True)
@@ -29,8 +34,15 @@ def create_database():
 
 def drop_tables(cur, conn):
     """
-    Drops each table using the queries in `drop_table_queries` list.
+    Description: This function drops each table in sparkifydb using the queries in `drop_table_queries` list
+
+    Arguments:
+        None
+
+    Returns:
+        None
     """
+
     for query in drop_table_queries:
         cur.execute(query)
         conn.commit()
@@ -38,8 +50,15 @@ def drop_tables(cur, conn):
 
 def create_tables(cur, conn):
     """
-    Creates each table using the queries in `create_table_queries` list. 
+    Description: This function creates each table in sparkifydb using the queries in `create_table_queries` list
+
+    Arguments:
+        None
+
+    Returns:
+        None
     """
+
     for query in create_table_queries:
         cur.execute(query)
         conn.commit()
@@ -47,17 +66,17 @@ def create_tables(cur, conn):
 
 def main():
     """
-    - Drops (if exists) and Creates the sparkify database. 
-    
-    - Establishes connection with the sparkify database and gets
-    cursor to it.  
-    
-    - Drops all the tables.  
-    
-    - Creates all tables needed. 
-    
-    - Finally, closes the connection. 
+    Description: This function is the main function of the script. It es responsible
+    for dropping (only if existis), creating and connecting to the sparkifydb.
+    Drops all the tables, then creates all of them, and finally closes the connection.
+
+    Arguments:
+        None
+
+    Returns:
+        None
     """
+
     cur, conn = create_database()
     
     drop_tables(cur, conn)
