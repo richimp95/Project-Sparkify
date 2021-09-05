@@ -1,7 +1,9 @@
 
 
 # SPARKIFY PROJECT
+This is the first project from the Data Engineering Nanodegree Program of Udacity.
 
+*Author: Ricardo Miranda*
 
 ## Purpose
 
