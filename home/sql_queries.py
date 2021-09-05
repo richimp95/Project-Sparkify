@@ -129,7 +129,6 @@ ON CONFLICT (artist_id)
 DO UPDATE SET name = EXCLUDED.name
 """)
 
-
 time_table_insert = ("""
 INSERT INTO time 
     (
